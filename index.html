@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limra Property Solution | Greater Noida</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #B8860B;
+    --red-dark: #7A5C09;
+    --red-light: #D4A017;
+    --blue: #1A1400;
+    --blue-mid: #2C2200;
+    --blue-light: #C9A84C;
+    --white: #FFFFFF;
+    --off-white: #FDFAF3;
+    --light-grey: #EDE8D5;
+    --text-dark: #1A1400;
+    --text-muted: #6B5F3A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-brand {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 42px; height: 42px;
+    background: var(--red);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  .nav-brand-text {
+    display: flex; flex-direction: column;
+  }
+
+  .nav-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+  }
+
+  .nav-brand-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--red) !important;
+    color: var(--white) !important;
+    padding: 9px 22px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-light) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+  }
+
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--white); border-radius: 2px; transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: #0D0A00;
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  /* Dark + gold-tinted gradient overlay for readability */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(13, 10, 0, 0.82) 0%,
+      rgba(26, 20, 0, 0.70) 55%,
+      rgba(44, 34, 0, 0.55) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Subtle gold shimmer strip on the left edge */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, #C9A84C 0%, #B8860B 50%, #C9A84C 100%);
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative; z-index: 3;
+    width: 90%; max-width: 1200px;
+    margin: 0 auto;
+    display: flex; flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 0;
+  }
+
+  .hero-left { color: var(--white); }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 22px;
+  }
+
+  .hero-eyebrow-line {
+    width: 32px; height: 1px; background: var(--red);
+  }
+
+  .hero-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 4.5vw, 60px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .hero-heading span { color: #FFB3BC; }
+
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.72);
+    max-width: 620px;
+    margin-bottom: 42px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 15px 32px;
+    border-radius: 4px;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--red-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    padding: 15px 32px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+
+  /* Hero stats card — right side */
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.97);
+    border-radius: 12px;
+    padding: 40px 36px;
+    width: 100%; max-width: 380px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  }
+
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .hero-card-sub {
+    font-size: 13px; color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .hero-card-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .stat-box {
+    padding: 18px 16px;
+    border-radius: 8px;
+    background: var(--off-white);
+    text-align: center;
+  }
+
+  .stat-box.accent { background: var(--blue); }
+  .stat-box.accent .stat-num { color: var(--white); }
+  .stat-box.accent .stat-label { color: rgba(255,255,255,0.65); }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 900;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .stat-label {
+    font-size: 11px; font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+
+  .hero-card-contact a {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+    color: var(--white);
+    background: var(--red);
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 15px; font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .hero-card-contact a:hover { background: var(--red-light); }
+
+  .hero-card-contact a svg { flex-shrink: 0; }
+
+  /* ── SECTION COMMONS ── */
+  .section { padding: 90px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 14px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block; width: 24px; height: 2px;
+    background: var(--red);
+  }
+
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 15px; color: var(--text-muted);
+    line-height: 1.75; max-width: 560px;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--off-white); }
+
+  .services-header { margin-bottom: 56px; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 36px 30px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    border-top-color: var(--red);
+    box-shadow: 0 12px 40px rgba(26, 20, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .service-icon svg { color: white; }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 14px; color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── WHY US ── */
+  .why-us { background: var(--white); }
+
+  .why-us-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .why-us-visual {
+    position: relative;
+  }
+
+  .why-main-block {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    border-radius: 12px;
+    padding: 52px 44px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-main-block::before {
+    content: '';
+    position: absolute; bottom: -30px; right: -30px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .why-big-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 88px; font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .why-big-number span {
+    font-size: 40px; color: rgba(255,255,255,0.5);
+  }
+
+  .why-big-label {
+    font-size: 16px; color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+
+  .why-badge {
+    position: absolute; bottom: -20px; right: 32px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 14px 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700;
+    box-shadow: 0 8px 24px rgba(184,134,11,0.35);
+  }
+
+  .why-points { margin-top: 24px; }
+
+  .why-point {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  .why-point:last-child { border-bottom: none; }
+
+  .why-dot {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: rgba(184,134,11,0.09);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  .why-dot svg { color: var(--red); }
+
+  .why-point-title {
+    font-weight: 600; font-size: 15px;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+
+  .why-point-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PROPERTIES ── */
+  .properties { background: var(--off-white); }
+
+  .props-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; margin-bottom: 48px; gap: 20px;
+  }
+
+  .props-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .prop-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+
+  .prop-card:hover { box-shadow: 0 16px 48px rgba(26,20,0,0.13); transform: translateY(-4px); }
+
+  .prop-thumb {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .prop-thumb.blue-bg { background: linear-gradient(135deg, var(--blue), var(--blue-light)); }
+  .prop-thumb.red-bg { background: linear-gradient(135deg, var(--red-dark), var(--red-light)); }
+  .prop-thumb.dark-bg { background: linear-gradient(135deg, #1A1400, var(--blue-mid)); }
+
+  .prop-thumb-inner {
+    text-align: center;
+  }
+
+  .prop-thumb-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.2;
+  }
+
+  .prop-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--red);
+    color: var(--white);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 3px;
+  }
+
+  .prop-badge.available { background: #1E7A3E; }
+  .prop-badge.featured { background: var(--blue); }
+
+  .prop-body { padding: 22px 22px 26px; }
+
+  .prop-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .prop-loc {
+    font-size: 12px; color: var(--text-muted);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  .prop-tags {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .prop-tag {
+    font-size: 11px; font-weight: 500;
+    background: var(--off-white);
+    color: var(--text-muted);
+    padding: 4px 10px; border-radius: 20px;
+    border: 1px solid var(--light-grey);
+  }
+
+  .prop-footer {
+    display: flex; justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--light-grey);
+  }
+
+  .prop-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-weight: 700;
+    color: var(--red);
+  }
+
+  .prop-cta {
+    font-size: 12px; font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .prop-cta:hover { color: var(--red); }
+
+  /* ── DIRECTOR ── */
+  .director { background: var(--blue); overflow: hidden; position: relative; }
+
+  .director::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .director-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 90px 5%;
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .director-left { color: var(--white); }
+
+  .director-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 18px;
+  }
+
+  .director-eyebrow::before {
+    content: ''; display: block;
+    width: 24px; height: 2px; background: var(--red);
+  }
+
+  .director-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .director-title {
+    font-size: 14px; font-weight: 600;
+    color: var(--red);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .director-bio {
+    font-size: 15px; color: rgba(255,255,255,0.72);
+    line-height: 1.8; margin-bottom: 36px;
+  }
+
+  .director-contact a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--red);
+    color: var(--white);
+    padding: 13px 26px;
+    border-radius: 4px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .director-contact a:hover { background: var(--red-light); }
+
+  .director-right {
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .director-avatar {
+    width: 280px; height: 280px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.12);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 14px;
+    position: relative;
+  }
+
+  .director-avatar::after {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px; right: -16px; bottom: -16px;
+    border: 2px solid var(--red);
+    border-radius: 12px;
+    opacity: 0.4;
+  }
+
+  .avatar-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .avatar-label {
+    font-size: 12px; color: rgba(255,255,255,0.45);
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--white); }
+
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .contact-info { }
+
+  .contact-items { margin-top: 32px; display: flex; flex-direction: column; gap: 24px; }
+
+  .contact-item {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 46px; height: 46px; flex-shrink: 0;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .contact-icon svg { color: white; }
+
+  .contact-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 4px;
+  }
+
+  .contact-value {
+    font-size: 15px; color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  .contact-value a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .contact-value a:hover { color: var(--red); }
+
+  /* Contact form */
+  .contact-form-wrap {
+    background: var(--off-white);
+    border-radius: 12px;
+    padding: 40px 36px;
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--blue); margin-bottom: 6px;
+  }
+
+  .form-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px; font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--light-grey);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; color: var(--text-dark);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--blue); }
+
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--red);
+    color: var(--white);
+    border: none; border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 6px;
+  }
+
+  .form-submit:hover { background: var(--red-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0D0A00;
+    color: rgba(255,255,255,0.6);
+    padding: 56px 5% 32px;
+  }
+
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 28px;
+  }
+
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .footer-brand-sub {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 14px;
+  }
+
+  .footer-brand-desc {
+    font-size: 13px; line-height: 1.7;
+    color: rgba(255,255,255,0.45); max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-size: 13px; font-weight: 700;
+    color: var(--white); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li { margin-bottom: 10px; }
+
+  .footer-links a {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 12px;
+  }
+
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  .footer-bottom a:hover { color: rgba(255,255,255,0.65); }
+
+  /* ── FLOATING ACTIONS ── */
+  .float-actions {
+    position: fixed; bottom: 28px; right: 24px;
+    display: flex; flex-direction: column; gap: 12px;
+    z-index: 999;
+  }
+
+  .float-btn {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 20px;
+    border-radius: 50px;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+
+  .float-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.28); }
+
+  .float-wa { background: #25D366; color: var(--white); }
+  .float-call { background: var(--blue); color: var(--white); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+    .hero::before, .hero::after { display: none; }
+    .hero { background: #0D0A00; }
+
+
+    .services-grid { grid-template-columns: 1fr; }
+    .props-grid { grid-template-columns: 1fr; }
+    .why-us-inner { grid-template-columns: 1fr; gap: 40px; }
+    .director-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .props-header { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 64px 5%; }
+    .float-btn span { display: none; }
+    .float-btn { padding: 14px; border-radius: 50%; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo-icon">L</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">Limra Property</span>
+      <span class="nav-brand-sub">Solution</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- Upload Limra_Hero_Video.webm to your GitHub repo root alongside this file -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="Limra_Hero_Video.webm" type="video/webm">
+  </video>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        Greater Noida's Trusted Property Experts
+      </div>
+      <h1 class="hero-heading">
+        Find Your Perfect<br><span>Property</span> in Greater Noida
+      </h1>
+      <p class="hero-desc">
+        Limra Property Solution connects buyers, sellers, and investors with the right real estate opportunities — residential plots, commercial spaces, and builder floors across Greater Noida.
+      </p>
+      <div class="hero-actions">
+        <a href="#properties" class="btn-primary">View Properties</a>
+        <a href="#contact" class="btn-ghost">Get Free Consultation</a>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="services-header reveal">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-heading">Comprehensive Property Services</h2>
+      <p class="section-sub">From finding the right plot to complete investment advisory — we guide you at every step of your real estate journey.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="service-title">Residential Properties</div>
+        <div class="service-desc">Flats, builder floors, and residential plots in Alpha-1, Alpha-2, Beta, Gamma, Delta, and Omega sectors of Greater Noida.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="service-title">Commercial Spaces</div>
+        <div class="service-desc">Office spaces, retail shops, and commercial plots in commercial belts including Krishna Apra Plaza and Galaxy Diamond Park.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="service-title">Investment Advisory</div>
+        <div class="service-desc">Expert guidance on high-return plots and properties along Yamuna Expressway, YEIDA sectors, and upcoming zones.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="service-title">Documentation Support</div>
+        <div class="service-desc">End-to-end assistance with registry, mutation, and all legal documentation to ensure your transaction is smooth and secure.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="service-title">Home Loan Assistance</div>
+        <div class="service-desc">We help you navigate home loan options from leading banks and NBFCs with the best interest rates and minimal paperwork.</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="service-title">Rental Management</div>
+        <div class="service-desc">Find quality tenants or rental properties. We manage tenant verification, agreements, and ongoing property oversight.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why-us" id="about">
+  <div class="section-inner">
+    <div class="why-us-inner">
+      <div class="why-us-visual reveal">
+        <div class="why-main-block">
+          <div class="why-big-number">10<span>+</span></div>
+          <div class="why-big-label">Years of trusted real estate expertise in Greater Noida</div>
+        </div>
+        <div class="why-badge">500+ Happy Families</div>
+      </div>
+
+      <div class="why-us-content reveal">
+        <div class="section-tag">Why Trust Us</div>
+        <h2 class="section-heading">Greater Noida's Real Estate Partner</h2>
+        <p class="section-sub">Limra Property Solution has been a cornerstone of the Greater Noida property market — building long-term relationships through transparency, expertise, and results.</p>
+
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-dot">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="why-point-title">Deep Local Knowledge</div>
+              <div class="why-point-desc">We know every sector, price trend, and upcoming development in Greater Noida — so you never miss the right opportunity.</div>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-dot">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="why-point-title">Transparent Dealings</div>
+              <div class="why-point-desc">No hidden costs. No misinformation. Every deal is presented with complete clarity and backed by verified documentation.</div>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-dot">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="why-point-title">Post-Sale Support</div>
+              <div class="why-point-desc">Our commitment doesn't end at signing. We assist with mutation, maintenance contacts, and any post-purchase needs.</div>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-dot">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="why-point-title">Builder-Approved Network</div>
+              <div class="why-point-desc">We work directly with reputed builders and GNIDA-approved projects to bring you properties with clear titles.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="section properties" id="properties">
+  <div class="section-inner">
+    <div class="props-header reveal">
+      <div>
+        <div class="section-tag">Available Listings</div>
+        <h2 class="section-heading">Featured Properties</h2>
+      </div>
+      <a href="#contact" class="btn-primary">Enquire About Any Property</a>
+    </div>
+
+    <div class="props-grid">
+      <div class="prop-card reveal">
+        <div class="prop-thumb blue-bg">
+          <div class="prop-thumb-inner">
+            <div class="prop-thumb-label">Residential Plot</div>
+          </div>
+          <span class="prop-badge available">Available</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-title">100 Sq Yd Residential Plot</div>
+          <div class="prop-loc">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Alpha-2, Greater Noida
+          </div>
+          <div class="prop-tags">
+            <span class="prop-tag">Freehold</span>
+            <span class="prop-tag">GNIDA Approved</span>
+            <span class="prop-tag">Corner Plot</span>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price">₹35 Lac</div>
+            <a href="#contact" class="prop-cta">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal">
+        <div class="prop-thumb red-bg">
+          <div class="prop-thumb-inner">
+            <div class="prop-thumb-label">Commercial Shop</div>
+          </div>
+          <span class="prop-badge featured">Featured</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-title">Commercial Shop — Krishna Apra</div>
+          <div class="prop-loc">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Alpha-1 Commercial Belt, Greater Noida
+          </div>
+          <div class="prop-tags">
+            <span class="prop-tag">Ground Floor</span>
+            <span class="prop-tag">High Footfall</span>
+            <span class="prop-tag">250 Sq Ft</span>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price">₹55 Lac</div>
+            <a href="#contact" class="prop-cta">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal">
+        <div class="prop-thumb dark-bg">
+          <div class="prop-thumb-inner">
+            <div class="prop-thumb-label">Builder Floor</div>
+          </div>
+          <span class="prop-badge available">Available</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-title">3 BHK Builder Floor</div>
+          <div class="prop-loc">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Gamma-1, Greater Noida
+          </div>
+          <div class="prop-tags">
+            <span class="prop-tag">1250 Sq Ft</span>
+            <span class="prop-tag">Ready to Move</span>
+            <span class="prop-tag">2 Parking</span>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price">₹62 Lac</div>
+            <a href="#contact" class="prop-cta">Enquire →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTOR -->
+<section class="director">
+  <div class="director-inner">
+    <div class="director-left reveal">
+      <div class="director-eyebrow">Leadership</div>
+      <h2 class="director-name">Mr. Rizwan Saif</h2>
+      <div class="director-title">Director, Limra Property Solution</div>
+      <p class="director-bio">
+        With over a decade of hands-on experience in the Greater Noida real estate market, Mr. Rizwan Saif has guided hundreds of families and investors to make sound property decisions. His deep understanding of GNIDA regulations, market pricing, and builder relationships makes him one of the most trusted names in the region's property sector.
+      </p>
+      <p class="director-bio" style="margin-top: -16px;">
+        His philosophy is simple: every client deserves honest advice, clear information, and a transaction they can be proud of for years to come.
+      </p>
+      <div class="director-contact" style="margin-top: 32px;">
+        <a href="tel:+919911931234">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.22 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          Speak with Director: +91 99119 31234
+        </a>
+      </div>
+    </div>
+
+    <div class="director-right reveal">
+      <div class="director-avatar">
+        <div class="avatar-initials">RS</div>
+        <div class="avatar-label">Director</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-heading">We're Here to Help You</h2>
+        <p class="section-sub">Ready to buy, sell, or invest? Reach out and our team will get back to you within the hour.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.22 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Phone / WhatsApp</div>
+              <div class="contact-value"><a href="tel:+919911931234">+91 99119 31234</a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Office Address</div>
+              <div class="contact-value">F-16, Krishna Apra Plaza, Alpha-1<br>Commercial Belt, Greater Noida — 201310</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Office Hours</div>
+              <div class="contact-value">Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon" style="background: #25D366;">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value"><a href="https://wa.me/919911931234" target="_blank">Chat with us on WhatsApp</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <div class="form-title">Send an Enquiry</div>
+        <div class="form-sub">Fill in your details and we'll reach out to you shortly.</div>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Property Interest</label>
+            <select>
+              <option value="">— Select Category —</option>
+              <option>Residential Plot</option>
+              <option>Builder Floor / Flat</option>
+              <option>Commercial Shop / Office</option>
+              <option>Investment Property</option>
+              <option>Rental Property</option>
+              <option>Home Loan Assistance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Budget Range</label>
+            <select>
+              <option value="">— Select Budget —</option>
+              <option>Under ₹25 Lac</option>
+              <option>₹25–50 Lac</option>
+              <option>₹50 Lac – 1 Cr</option>
+              <option>Above ₹1 Cr</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us what you're looking for…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Limra Property Solution</div>
+        <div class="footer-brand-sub">Greater Noida's Trusted Real Estate Partner</div>
+        <div class="footer-brand-desc">Helping families and investors find the right property in Greater Noida with honesty, expertise, and genuine care since over a decade.</div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+919911931234">+91 99119 31234</a></li>
+          <li><a href="https://wa.me/919911931234">WhatsApp Us</a></li>
+          <li style="color: rgba(255,255,255,0.35); font-size:13px; line-height:1.6;">F-16, Krishna Apra Plaza,<br>Alpha-1 Commercial Belt,<br>Greater Noida — 201310</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Limra Property Solution. All rights reserved.</span>
+      <span>Director: Mr. Rizwan Saif &nbsp;|&nbsp; RERA Registered</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="float-actions">
+  <a href="https://wa.me/919911931234" class="float-btn float-wa" target="_blank">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="tel:+919911931234" class="float-btn float-call">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.22 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+    <span>Call Now</span>
+  </a>
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => io.observe(r));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Enquiry Sent! We\'ll call you shortly.';
+    btn.style.background = '#7A5C09';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
